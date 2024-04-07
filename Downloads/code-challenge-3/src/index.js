@@ -1,8 +1,8 @@
-// Fetch the JSON file and parse the response
+// Fetch JSON file and parse the response
 fetch('db.json')
  .then(response => response.json())
  .then(data => {
-    // Select the movie with the title "The Giant Gila Monster"
+    // Select the movie with title "The Giant Gila Monster"
     const giantGilaMonster = data.films.find(movie => movie.title === 'The Giant Gila Monster');
 
     // Set the movie title, image, description, and ticket information
@@ -13,12 +13,12 @@ fetch('db.json')
     document.getElementById('runtime').textContent = giantGilaMonster.runtime + ' minutes';
     document.getElementById('ticket-num').textContent = giantGilaMonster.capacity - giantGilaMonster.tickets_sold + ' remaining tickets';
 
-    // Add the default movie to the list of movies
+    // Put the default movie to the list of movies
     const li = document.createElement('li');
     li.classList.add('film', 'item');
     li.textContent = giantGilaMonster.title;
     li.addEventListener('click', () => {
-      // Set the movie title, image, description, and ticket information
+      // Set the movie title, image, description, and ticket info
       document.getElementById('title').textContent = giantGilaMonster.title;
       document.getElementById('poster').src = giantGilaMonster.poster;
       document.getElementById('film-info').textContent = giantGilaMonster.description;
@@ -26,7 +26,7 @@ fetch('db.json')
       document.getElementById('runtime').textContent = giantGilaMonster.runtime + ' minutes';
       document.getElementById('ticket-num').textContent = giantGilaMonster.capacity - giantGilaMonster.tickets_sold + ' remaining tickets';
 
-      // Add an event listener to the buy ticket button
+      // Put an event listener to the buy ticket button
       document.getElementById('buy-ticket').addEventListener('click', () => {
         if (giantGilaMonster.tickets_sold < giantGilaMonster.capacity) {
           giantGilaMonster.tickets_sold++;
